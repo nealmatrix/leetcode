@@ -72,32 +72,32 @@ public:
 int main(){
     Solution s;
     int result;
-    //case 1: output 2
-    cout << "case 1:" << endl;
+    //case 1:
+    cout << "case 1: output 2" << endl;
     {vector<int> nums({-1, 2, 1, -4});
     result = s.threeSumClosest(nums, 1);
     cout << result << endl;}
 
-    //case 2: output 6
-    cout << "case 2:" << endl;
+    //case 2:
+    cout << "case 2: output 6" << endl;
     {vector<int> nums({-4, 1, 2, 2, -3, 2, 1, -4});
     result = s.threeSumClosest(nums, 100);
     cout << result << endl;}
 
     //case 3: output -2
-    cout << "case 3:" << endl;
+    cout << "case 3: output -2" << endl;
     {vector<int> nums({-4, 1, 2, 2, -3, 2, 1, -4});
     result = s.threeSumClosest(nums, -2);
     cout << result << endl;}
 
     //case 4: output 2
-    cout << "case 4:" << endl;
+    cout << "case 4: output 2" << endl;
     {vector<int> nums({1, 1, 1, 0});
     result = s.threeSumClosest(nums, -100);
     cout << result << endl;}
 
     //case 5: output 16
-    cout << "case 5:" << endl;
+    cout << "case 5: output 16" << endl;
     {vector<int> nums({-111,-111,3,6,7,16,17,18,19});
     result = s.threeSumClosest(nums, 13);
     cout << result << endl;}

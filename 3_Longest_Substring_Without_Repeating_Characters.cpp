@@ -1,4 +1,4 @@
-// 0003 Longest Substring Without Repeating Characters.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// 0003 Longest Substring Without Repeating Characters.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
@@ -10,12 +10,12 @@ using namespace std;
 class Solution {
 public:
 	int lengthOfLongestSubstringV1(string s) {
-		//ÓÃhashtableµÄË¼Â·ÊÇÕıÈ·µÄ£¬µ«ÊÇ²»ĞèÒªÉ¾³ıÖ®Ç°ÓĞÖØ¸´µÄcharacter¡£
-		//Ö»ĞèÒªÓÃiºÍp->secondÀ´ÅĞ¶ÏÏÖÔÚĞÂ×Ö·ûÖØ¸´ÊÇÔÚiÇ°»¹ÊÇiºó¡£
+		//ç”¨hashtableçš„æ€è·¯æ˜¯æ­£ç¡®çš„ï¼Œä½†æ˜¯ä¸éœ€è¦åˆ é™¤ä¹‹å‰æœ‰é‡å¤çš„characterã€‚
+		//åªéœ€è¦ç”¨iå’Œp->secondæ¥åˆ¤æ–­ç°åœ¨æ–°å­—ç¬¦é‡å¤æ˜¯åœ¨iå‰è¿˜æ˜¯iåã€‚
 		int length = s.size();
 		int maxLength = 0;
 		int tmpLength = 0;
-		unordered_map<char, int> map; //char,int: stringÖĞµÄÃ¿¸ö×Ö·ûºÍËùÔÚµÄÎ»ÖÃ
+		unordered_map<char, int> map; //char,int: stringä¸­çš„æ¯ä¸ªå­—ç¬¦å’Œæ‰€åœ¨çš„ä½ç½®
 		unordered_map<char, int>::iterator p;
 		int i = 0, j = 0;
 		for (; i < length; ++i) {
@@ -41,7 +41,7 @@ public:
 		int length = s.size();
 		int maxLength = 0;
 		int tmpLength = 0;
-		unordered_map<char, int> map; //char,int: stringÖĞµÄÃ¿¸ö×Ö·ûºÍËùÔÚµÄÎ»ÖÃ
+		unordered_map<char, int> map; //char,int: stringä¸­çš„æ¯ä¸ªå­—ç¬¦å’Œæ‰€åœ¨çš„ä½ç½®
 		unordered_map<char, int>::iterator p;
 		int i = 0, j = 0;
 		for (; i < length; ++i) {
@@ -51,7 +51,7 @@ public:
 			}
 			tmpLength = i - j + 1;
 			if (tmpLength > maxLength) maxLength = tmpLength;
-			map[s.at(i)]=i;//insertÎŞ·¨¸²¸ÇÒÑ¾­´æÔÚµÄkey£¬[]¿ÉÒÔ¸²¸Ç
+			map[s.at(i)]=i;//insertæ— æ³•è¦†ç›–å·²ç»å­˜åœ¨çš„keyï¼Œ[]å¯ä»¥è¦†ç›–
 		}
 		return maxLength;
 	}
@@ -60,7 +60,7 @@ public:
 		int length = s.size();
 		int maxLength = 0;
 		int tmpLength = 0;
-		unordered_map<char, int> map; //char,int: stringÖĞµÄÃ¿¸ö×Ö·ûºÍËùÔÚµÄÎ»ÖÃ
+		unordered_map<char, int> map; //char,int: stringä¸­çš„æ¯ä¸ªå­—ç¬¦å’Œæ‰€åœ¨çš„ä½ç½®
 		unordered_map<char, int>::iterator p;
 		int i = 0, j = 0;
 		for (; i < length; ++i) {
@@ -72,7 +72,7 @@ public:
 					j = p->second + 1;
 				}
 			}
-			map[s.at(i)] = i;//insertÎŞ·¨¸²¸ÇÒÑ¾­´æÔÚµÄkey£¬[]¿ÉÒÔ¸²¸Ç
+			map[s.at(i)] = i;//insertæ— æ³•è¦†ç›–å·²ç»å­˜åœ¨çš„keyï¼Œ[]å¯ä»¥è¦†ç›–
 		}
 		tmpLength = i - j;
 		if (tmpLength > maxLength) maxLength = tmpLength;

@@ -1,12 +1,11 @@
-// 0005 Longest Palindromic Substring.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// 0005 Longest Palindromic Substring.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 using namespace std;
 class SolutionV1 {
-	//·Ç³£Âı
+	//éå¸¸æ…¢
 public:
 	string longestPalindrome(string s) {
 		int n = s.size();
@@ -20,7 +19,7 @@ public:
 		return pS;
 	}
 	string centerExpand(string s, int i) {
-		// i ÊÇcenterµÄĞòºÅ£¬0 - (n-1)ÊÇ×ÖÄ¸Îªcenter, n - (2n-2)ÊÇ×ÖÄ¸ºÍ×ÖÄ¸Ö®¼äµÄ¿ÕÏ¶Îªcenter0
+		// i æ˜¯centerçš„åºå·ï¼Œ0 - (n-1)æ˜¯å­—æ¯ä¸ºcenter, n - (2n-2)æ˜¯å­—æ¯å’Œå­—æ¯ä¹‹é—´çš„ç©ºéš™ä¸ºcenter0
 		int n = s.size();
 		int minI, maxI;
 		string pS = "";
@@ -65,11 +64,11 @@ public:
 		return s.substr(result[1], result[0]);
 	}
 	int* centerExpand(string s, int i) {
-	// i ÊÇcenterµÄĞòºÅ£¬0 - (n-1)ÊÇ×ÖÄ¸Îªcenter, n - (2n-2)ÊÇ×ÖÄ¸ºÍ×ÖÄ¸Ö®¼äµÄ¿ÕÏ¶Îªcenter0
+	// i æ˜¯centerçš„åºå·ï¼Œ0 - (n-1)æ˜¯å­—æ¯ä¸ºcenter, n - (2n-2)æ˜¯å­—æ¯å’Œå­—æ¯ä¹‹é—´çš„ç©ºéš™ä¸ºcenter0
 		int n = s.size();
 		int minI, maxI;
 		int pL = 0;
-		static int result[2]; //result[0]·µ»Ø³¤¶È£¬ result[1]ÆğÊ¼Î»ÖÃ
+		static int result[2]; //result[0]è¿”å›é•¿åº¦ï¼Œ result[1]èµ·å§‹ä½ç½®
 		result[0] = 0;
 		result[1] = 0;
 		if (i <= n - 1){
