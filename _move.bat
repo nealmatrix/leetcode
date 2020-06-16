@@ -1,0 +1,2 @@
+move *.exe .\exe\
+pause
