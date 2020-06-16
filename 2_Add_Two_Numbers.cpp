@@ -1,13 +1,21 @@
-// 0002 Add Two Numbers.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌÐòµÄÈë¿Úµã¡£
-//
+//2 Add Two Numbers
+/* Description:
+You are given two non-empty linked lists representing two non-negative integers.
+The digits are stored in reverse order and each of their nodes contain a single digit.
+Add the two numbers and return it as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.*/
 
-#include "stdafx.h"
+/*Example:
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807.*/
+
 #include <iostream>
 #include <fstream>
 using namespace std;
 class Data {
 public:
-	int a[50][100]; //Ã¿ÐÐ¼ÇÂ¼ÔÚÒ»¸öÊý×éÀïÃæ
+	int a[50][100]; //æ¯è¡Œè®°å½•åœ¨ä¸€ä¸ªæ•°ç»„é‡Œé¢
 	int b[50];
 	int lineNum;
 	void readData();
@@ -41,8 +49,8 @@ int inputData(char* filename, Data& data) {
 	}
 	char buf[200];
 	int bufSize = 200;
-	int lineNum = 0; //Ò»¹²¶àÉÙÐÐ
-	int num; //Ã¿ÐÐÓÐ¶àÉÙdata
+	int lineNum = 0; //ä¸€å…±å¤šå°‘è¡Œ
+	int num; //æ¯è¡Œæœ‰å¤šå°‘data
 	char*p;
 	while (inFile.getline(buf, bufSize)) {
 		p = strtok(buf, ", ");
@@ -90,11 +98,11 @@ void outputList(ListNode* p) {
 class Solution {
 public:
 	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-		//´úÂëÐ´·¨¸Ä½ø£º
-		//1.µÚÒ»¸öµã¿ÉÒÔÖ±½ÓÊÇÐé¹¹µÄ£¬¶øÊµ¼ÊµÚÒ»¸öµãÎªµÚ¶þ¸öµã£¬±ÜÃâ´úÂëµÄÖØ¸´
-		//2.µÚ¶þ¸öÑ­»·ºÍµÚÒ»¸öÑ­»·¿ÉÒÔºÏ²¢£¬Ö»ÒªÉèÖÃµ½NULLºó£¬¼ÓµÄÊýÖµÎª0¼´¿É£¬±ÜÃâ´úÂëÖØ¸´
+		//ä»£ç å†™æ³•æ”¹è¿›ï¼š
+		//1.ç¬¬ä¸€ä¸ªç‚¹å¯ä»¥ç›´æŽ¥æ˜¯è™šæž„çš„ï¼Œè€Œå®žé™…ç¬¬ä¸€ä¸ªç‚¹ä¸ºç¬¬äºŒä¸ªç‚¹ï¼Œé¿å…ä»£ç çš„é‡å¤
+		//2.ç¬¬äºŒä¸ªå¾ªçŽ¯å’Œç¬¬ä¸€ä¸ªå¾ªçŽ¯å¯ä»¥åˆå¹¶ï¼Œåªè¦è®¾ç½®åˆ°NULLåŽï¼ŒåŠ çš„æ•°å€¼ä¸º0å³å¯ï¼Œé¿å…ä»£ç é‡å¤
 		//
-		/*int tmp,i=0; //tmpÊÇÃ¿Î»Ïë¼ÓµÄ½á¹û£¬iÅÐ¶ÏÊÇ·ñÐèÒª½øÎ»
+		/*int tmp,i=0; //tmpæ˜¯æ¯ä½æƒ³åŠ çš„ç»“æžœï¼Œiåˆ¤æ–­æ˜¯å¦éœ€è¦è¿›ä½
 		tmp = l1->val + l2->val + i;
 		i = tmp / 10;
 		tmp %= 10;
@@ -133,10 +141,10 @@ public:
 		}
 		return first;
 		*/
-		ListNode* prefirst = new ListNode(0); //µÚÒ»¸öµãÎªÐé¹¹µÄ¡£
+		ListNode* prefirst = new ListNode(0); //ç¬¬ä¸€ä¸ªç‚¹ä¸ºè™šæž„çš„ã€‚
 		ListNode* p = prefirst;
-		ListNode* p1 = l1, *p2 = l2; //²»ÒªÖ±½ÓÐÞ¸Ä½øÀ´µÄ²ÎÊý±äÁ¿
-		int i=0, tmp; //i¼ÇÂ¼½øÎ»£¬tmp¼ÇÂ¼Ïë¼Ó½á¹û
+		ListNode* p1 = l1, *p2 = l2; //ä¸è¦ç›´æŽ¥ä¿®æ”¹è¿›æ¥çš„å‚æ•°å˜é‡
+		int i=0, tmp; //iè®°å½•è¿›ä½ï¼Œtmpè®°å½•æƒ³åŠ ç»“æžœ
 		while (p1 != NULL || p2 != NULL) {
 			int n1 = (p1 != NULL) ? p1->val : 0;
 			int n2 = (p2 != NULL) ? p2->val : 0;

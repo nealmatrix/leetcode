@@ -1,25 +1,22 @@
-// 0001 two sum.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
+//1 Two Sum
 /* Description:
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Given an array of integers, return indices of the two numbers such that 
+they add up to a specific target.
+You may assume that each input would have exactly one solution, 
+and you may not use the same element twice.
 */
 
 /* Example:
-
 Given nums = [2, 7, 11, 15], target = 9,
-
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return[0, 1].
 */
 
 /* Solution:
-brute force¿ÉÒÔ×ö£¬µ«ÊÇÓÃhash table¿ÉÒÔ½øÒ»²½Ìá¸ßĞ§ÂÊ
-¿ÉÒÔÓÃone-pass hash table£¬¼´¼ÓÈëÒ»¸öÊıµÄÊ±ºòÏÈ¼ì²âÊÇ·ñÓĞ¶ÔÓ¦µÄÊıÒÑ¾­ÔÚhash tableÖĞÁË¡£
+brute forceå¯ä»¥åšï¼Œä½†æ˜¯ç”¨hash tableå¯ä»¥è¿›ä¸€æ­¥æé«˜æ•ˆç‡
+å¯ä»¥ç”¨one-pass hash tableï¼Œå³åŠ å…¥ä¸€ä¸ªæ•°çš„æ—¶å€™å…ˆæ£€æµ‹æ˜¯å¦æœ‰å¯¹åº”çš„æ•°å·²ç»åœ¨hash tableä¸­äº†ã€‚
 */
 
-#include "stdafx.h"
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -78,12 +75,12 @@ int main()
 	ostream_iterator<int> oit(cout, ",");
 	copy(result.begin(), result.end(), oit);
 	
-	//findÈç¹ûÕÒ²»µ½£¬Ôò»á·µ»Ønums.end()
+	//findå¦‚æœæ‰¾ä¸åˆ°ï¼Œåˆ™ä¼šè¿”å›nums.end()
 	/*p=find(nums.begin(), nums.end(), 10); 
 	cout << p - nums.begin()<<endl;
 	*/
     
-	//copyÓÃÓÚÊä³ö,ÆäÖĞoitµÄ<int>ºÍvectorµÄ<int>Ò»ÖÂ
+	//copyç”¨äºè¾“å‡º,å…¶ä¸­oitçš„<int>å’Œvectorçš„<int>ä¸€è‡´
 	/*sort(nums.begin(), nums.end());
 	ostream_iterator<int> oit(cout, ".");
 	copy(nums.begin(), nums.end(), oit);

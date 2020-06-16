@@ -1,5 +1,22 @@
-// 0005 Longest Palindromic Substring.cpp : 定义控制台应用程序的入口点。
-//
+//5 Longest Palindromic Substring
+
+/* Description:
+Given a string s, find the longest palindromic substring in s.
+You may assume that the maximum length of s is 1000.*/
+
+/* Example 1:
+Input: "babad"
+Output: "bab"
+Note: "aba" is also a valid answer.
+
+Example 2:
+Input: "cbbd"
+Output: "bb"*/
+
+/* Solution:
+1. **A palindrome is a string which reads the same in both directions.**
+2. For example, SS = "aba" is a palindrome, SS = "abc" is not.
+算法见笔记，有空再整理*/
 
 #include <iostream>
 #include <string>
@@ -50,7 +67,6 @@ public:
 };
 class Solution {
 public:
-	//Given a string s, find the longest palindromic substring in s.You may assume that the maximum length of s is 1000.
 	string longestPalindrome(string s) {
 		int n = s.size();
 		int result[2] = {0,0};
@@ -119,7 +135,7 @@ int main()
 	a = a + 'a' + 'b';
 	cout << a << endl;
 	
-
+	system("pause");
     return 0;
 }
 

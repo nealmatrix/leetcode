@@ -1,4 +1,4 @@
-// 0004 Median of Two Sorted Arrays.cpp : 定义控制台应用程序的入口点。
+//4 Median of Two Sorted Arrays
 
 /* Description:
 There are two sorted arrays nums1 and nums2 of size m and n respectively.
@@ -22,11 +22,14 @@ The median is(2 + 3) / 2 = 2.5
 
 /* Solution:
 将A, B各分成两部分
-A为 A[0]...A[i-1] 和 A[i]...A[m-1]
-B为 B[0]...B[j-1] 和 B[j]...A[n-1]
+A left: A[0]...A[i-1] 和 A right: A[i]...A[m-1]
+B left: B[0]...B[j-1] 和 B right: B[j]...A[n-1]
 如果左边部分和右边部分满足如下条件，即可知道中位数就在分界线
-1. 左边数量等于右边: i + j = m - i + n - j
-2. 左边都小于右边: A[i-1] <= B[j] && B[j-1] <= A[i]
+1. 左边数量等于右边
+   len(A left + B left) = len(A right + B right)
+   i + j = m - i + n - j
+2. 左边都小于右边
+   A[i-1] <= B[j] && B[j-1] <= A[i]
 i如果确定， 根据1，j就是确定的
 那么根据2，可以对i进行二分法找到i来保证2成立，即m + n 进行二分法，复杂度为 O(log(m + n)
 */
