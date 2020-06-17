@@ -44,16 +44,16 @@ public:
         int d_num =  digits.length();
         if (d_num == 1){
             string alpha = dmap[digits];
-            for (int j = 0; j < alpha.length(); ++j)
+            for (unsigned int j = 0; j < alpha.length(); ++j)
                 result.push_back(string(1, alpha[j]));
             return result;
         }
         //recursion:
         string f_dig(1, digits[0]);
         string alpha = dmap[f_dig];
-        //temp_result为去掉首字母的string对应的字母表
+        //strings_1为去掉首字母的digits得到的字母组合
         vector<string> strings_1 = letterCombinations(digits.substr(1));
-        for (int i = 0; i < alpha.length(); ++i){
+        for (unsigned int i = 0; i < alpha.length(); ++i){
             for (string& string_1: strings_1){
                 result.push_back(alpha[i] + string_1);
             }
