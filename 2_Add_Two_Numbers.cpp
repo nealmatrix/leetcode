@@ -166,7 +166,7 @@ public:
 int main()
 {
 	Data data;
-	char filename[] = "test.txt";
+	char filename[] = "2_test.txt";
 	inputData(filename, data);
 	data.readData();
 	Solution solution;
