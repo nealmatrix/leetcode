@@ -80,22 +80,28 @@ public:
 };
 
 int main(){
+    //input
+    vector<int> array;
+    int n;
+    
     Solution s;
+    ListNode * head;
+    
     //case 1
-    {vector<int> array({1,2,3,4,5});
-    int n = 2;
+    array = {1,2,3,4,5};
+    n = 2;
     cout << "case 1: output 1->2->3->5" << endl;
-    ListNode * head = generateLinkedList(array);
+    head = generateLinkedList(array);
     head = s.removeNthFromEnd(head, n);
-    printLinkedList(head);}
+    printLinkedList(head);
 
     //case 2
-    {vector<int> array({1,2,3,4,5});
-    int n = 5;
+    array = {1,2,3,4,5};
+    n = 5;
     cout << "case 2: output 2->3->4->5" << endl;
-    ListNode * head = generateLinkedList(array);
+    head = generateLinkedList(array);
     head = s.removeNthFromEnd(head, n);
-    printLinkedList(head);}
+    printLinkedList(head);
 
     system("pause");
     return 0;

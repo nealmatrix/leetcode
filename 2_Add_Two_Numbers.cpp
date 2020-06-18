@@ -13,6 +13,7 @@ Explanation: 342 + 465 = 807.*/
 #include <iostream>
 #include <fstream>
 using namespace std;
+
 class Data {
 public:
 	int a[50][100]; //每行记录在一个数组里面
@@ -66,12 +67,13 @@ int inputData(char* filename, Data& data) {
 	inFile.close();
 	return 1;
 }
-
+//definition for singly-linked list
 struct ListNode {
      int val;
      ListNode *next;
      ListNode(int x) : val(x), next(NULL) {}
 };
+//make list
 ListNode* makeList(int* a, int num) {
 	ListNode* first= new ListNode(a[0]);
 	ListNode* p1, * p2;
@@ -83,6 +85,7 @@ ListNode* makeList(int* a, int num) {
 	}
 	return first;
 }
+//print linked list
 void outputList(ListNode* p) {
 	if (p != NULL) {
 		cout << p->val;
