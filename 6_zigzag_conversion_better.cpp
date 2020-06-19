@@ -39,9 +39,8 @@ i     numRows = 5
 2. i = 1,2,3时，第i行第j列就是第0行减去或者加上i，即序号为 (2 * numRows - 2) * j + sign * i
 其中sign = +1 或者 -1
 3. i = 4时，第i行第j列对应原来string S序号始终为 (2 * numRows - 2) * j + i
-*/
 
-//参考6_zigzag_conversion_2,有两处代码可以修改，更加简洁和清楚
+*/
 
 #include <string>
 #include <iostream>
@@ -53,9 +52,9 @@ public:
 		if (numRows == 1)
 			return s;
 		int n = s.size();
-		char* zS = new char[n + 1]; //最后一位加入'\0'，zS为zigzag后的序列,可以改为string，用push_back插入
-		int k_zS = 0; //k_zS是zS的序号
 		int k_S; //k_S是s的序号
+		string zigzag_s; //zigzag_s为zigzag后的序列
+		
 		for (int i = 0; i < numRows; i++) { //i是行号
 			int j = 0; //j是列号
 			bool need_change_sign = true; // need_change_sign是need change sign
@@ -63,29 +62,19 @@ public:
 			//第一行和最后一行不需要改变sign
 			if (i == 0 || i == numRows - 1)
 				need_change_sign = false;
-			while (true) {  //是否可以写成while((k_S = (2 * numRows - 2) * j + sign * i) < n)
-				k_S = (2 * numRows - 2) * j + sign * i;
-				if (k_S < n) {
-					zS[k_zS] = s[k_S];
-					k_zS++;
-					if (need_change_sign) {
-						if (sign == 1)
-							j++, sign = -1;
-						else
-							sign = 1;
-					}
-					else {
-						j++;
-					}
+			while((k_S = (2 * numRows - 2) * j + sign * i) < n){
+				zigzag_s.push_back(s[k_S]);
+				if (need_change_sign) {
+					if (sign == 1)
+						j++, sign = -1;
+					else
+						sign = 1;
 				}
 				else
-					break;
+					j++;
 			}
 		}
-		zS[k_zS] = '\0';
-		string result = zS;
-		delete zS;
-		return result;
+		return zigzag_s;
 	}
 };
 
@@ -119,6 +108,11 @@ int main()
 	cout << "Expect: A" << endl;
 	s = "A";
 	numRows = 1;
+	cout << "Output: " << sol.convert(s, numRows) << endl;
+
+    cout << "Expect: PAHNAPLSIIGYIR" << endl;
+	s = "PAYPALISHIRING";
+	numRows = 3;
 	cout << "Output: " << sol.convert(s, numRows) << endl;
 
 	system("pause");
