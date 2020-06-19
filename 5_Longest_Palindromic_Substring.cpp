@@ -13,16 +13,22 @@ Example 2:
 Input: "cbbd"
 Output: "bb"*/
 
-/* Solution:
-1. **A palindrome is a string which reads the same in both directions.**
-2. For example, SS = "aba" is a palindrome, SS = "abc" is not.
-算法见笔记，有空再整理*/
+/* Solution 1 center expand:
+1. A palindrome is a string which reads the same in both directions.
+2. 以字母和字母与字母之间的间隙为中心，一共2n-1个中心
+3. 以每个中心，向左右扩展，检测每个中心的最大回文半径
+4. 复杂度为中心个数O(n)*检测半径O(n) = O(n^2)*/
+
+/* Solution 2 Manacher's algorithm
+1. non-trivial algorithm, 复杂度为O(n)
+因算法较为复杂，另外写一个md文件*/
 
 #include <iostream>
 #include <string>
 using namespace std;
-class SolutionV1 {
-	//非常慢
+class Solution_2 {
+	//非常慢,因为centerExpand是在进行string的赋值运算，会很慢
+	//Solution中centerExpand只是在进行数值运算会快很多
 public:
 	string longestPalindrome(string s) {
 		int n = s.size();
@@ -83,20 +89,22 @@ public:
 	// i 是center的序号，0 - (n-1)是字母为center, n - (2n-2)是字母和字母之间的空隙为center0
 		int n = s.size();
 		int minI, maxI;
-		int pL = 0;
 		static int result[2]; //result[0]返回长度， result[1]起始位置
 		result[0] = 0;
 		result[1] = 0;
+		//center为字母，以字母序号为起始
 		if (i <= n - 1){
 			minI = i;
 			maxI = i;
 		}
+		//center为间隙，以间隙左右两边的字母为开始
 		else {
 			minI = i - n;
 			maxI = i - n + 1;
 			if (s[minI] != s[maxI])
 				return result;
 		}
+		//以center为中心向左右两边扩展
 		int j = 1;
 		while (minI - j >= 0 && maxI + j <= n - 1) {
 			if (s[minI - j] == s[maxI + j]) {
@@ -114,26 +122,25 @@ public:
 
 int main()
 {
+	//input
 	string s;
-	//test1 return "bab" or "aba"
+	Solution sol;
+
+	cout << "Expected: bab or aba " << endl;
 	s = "babad";
+	cout << sol.longestPalindrome(s) << endl;
 
-	//test2 return "bb"
-	//s = "cbbd";
+	cout << "Expected: bb " << endl;
+	s = "cbbd";
+	cout << sol.longestPalindrome(s) << endl;
 
-	//test3 return "abcba" 
-	//s = "lmabcbac";
+	cout << "Expected: abcba " << endl;
+	s = "lmabcbac";
+	cout << sol.longestPalindrome(s) << endl;
 
-	//test4 return ""
+	cout << "Expected: \"\"" << endl;
 	s = "";
-
-	Solution solu;
-	cout << solu.longestPalindrome(s) << endl;
-
-	string a = "";
-	cout << a.substr(0,0) << endl;
-	a = a + 'a' + 'b';
-	cout << a << endl;
+	cout << sol.longestPalindrome(s) << endl;
 	
 	system("pause");
     return 0;
