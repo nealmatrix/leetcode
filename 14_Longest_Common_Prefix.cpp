@@ -1,7 +1,17 @@
-// 0014 Longest Common Prefix.cpp : �������̨Ӧ�ó������ڵ㡣
-//
+//14 Longest Common Prefix
+/* Description：
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string "".*/
 
-#include "stdafx.h"
+/*Example 1:
+Input: ["flower","flow","flight"]
+Output: "fl"
+
+Example 2:
+Input: ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.*/
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -15,19 +25,21 @@ public:
 		if (numV == 0)
 			return result;
 		int minS = strs[0].size();
+		//确定strs的最小长度
 		for (int i = 1; i < numV; ++i) {
-			if (strs[i].size() < minS)
+			int size_i = strs[i].size();
+			if (size_i < minS)
 				minS = strs[i].size();
 		}
 		int j = 0;
+		//在最小长度范围内，比较每个字符
 		for (; j < minS; ++j) {
 			char c = strs[0][j];
 			for (int i = 1; i < numV; ++i) {
 				if (c != strs[i][j]) {
 					result = strs[0].substr(0, j);
 					return result;
-				}
-					
+				}					
 			}
 		}
 		result = strs[0].substr(0, j);
@@ -39,63 +51,25 @@ public:
 int main()
 {
 	Solution solu;
-	vector<string> strV;
-	int size;
-	//test1 return "fl"
-	strV.clear();
-	string strS1[] = { "flower", "flow", "flight" };
-	size = sizeof(strS1) / sizeof(string);
-	/*cout << sizeof(strS) << endl;
-	cout << sizeof(string) << endl;
-	cout << size << endl;*/
-	for (int i = 0; i < size; ++i) {
-		strV.push_back(strS1[i]);
-	}
-	cout << solu.longestCommonPrefix(strV) << ", fl" << endl;
+	vector<string> strs;
+
+	cout << "Expect: f1" << endl;
+	strs = { "flower", "flow", "flight" };
+	cout << "Output: " << solu.longestCommonPrefix(strs) << endl;
 	
-	//test2 return ""
-	strV.clear();
-	string strS2[] = { "dog", "racecar", "car" };
-	size = sizeof(strS2) / sizeof(string);
-	/*cout << sizeof(strS) << endl;
-	cout << sizeof(string) << endl;
-	cout << size << endl;*/
-	for (int i = 0; i < size; ++i) {
-		strV.push_back(strS2[i]);
-	}
-	cout << solu.longestCommonPrefix(strV) << "," << endl;
+	cout << "Expect: \"\"" << endl;
+	strs = { "dog", "racecar", "car" };
+	cout << "Output: " << solu.longestCommonPrefix(strs) << endl;
 
-	//test3 return ""
-	strV.clear();
-	string strS3[] = { "" };
-	size = sizeof(strS3) / sizeof(string);
-	/*cout << sizeof(strS) << endl;
-	cout << sizeof(string) << endl;
-	cout << size << endl;*/
-	for (int i = 0; i < size; ++i) {
-		strV.push_back(strS3[i]);
-	}
-	cout << solu.longestCommonPrefix(strV) << "," << endl;
+	cout << "Expect: \"\"" << endl;
+	strs = { "" };
+	cout << "Output: " << solu.longestCommonPrefix(strs) << endl;
 	
-	//test4 return "a"
-	strV.clear();
-	string strS4[] = { "aa","a" };
-	size = sizeof(strS4) / sizeof(string);
-	/*cout << sizeof(strS) << endl;
-	cout << sizeof(string) << endl;
-	cout << size << endl;*/
-	for (int i = 0; i < size; ++i) {
-		strV.push_back(strS4[i]);
-	}
-	cout << solu.longestCommonPrefix(strV) << ", a" << endl;
+	cout << "Expect: a" << endl;
+	strs = { "aa","a" };
+	cout << "Output: " << solu.longestCommonPrefix(strs) << endl;
 
-
-	string a = "abc";
-	string b;
-	b = a + "d";
-	cout << a << "," << b << endl;
-	a.push_back('d');
-	cout << a << "," << b << endl;
-    return 0;
+    system("pause");
+	return 0;
 }
 

@@ -1,15 +1,34 @@
-// 0009 Palindrome Number.cpp : 定义控制台应用程序的入口点。
-//
+//9 Palindrome Number
+/* Description:
+Determine whether an integer is a palindrome. 
+An integer is a palindrome when it reads the same backward as forward.*/
 
-#include "stdafx.h"
+/* Example 1:
+Input: 121
+Output: true
+
+Example 2:
+Input: -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+
+Example 3:
+Input: 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.*/
+
+/*Follow up:
+Coud you solve it without converting the integer to a string?*/
+
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <algorithm>
 using namespace std;
 
 class Solution {
 public:
-	bool isPalindromeV1(int x) {
+	bool isPalindrome_2(int x) {
 		string s = to_string(x);
 		int n = s.size();
 		int minI, maxI;
@@ -47,17 +66,20 @@ int main()
 {
 	Solution solu;
 	int x;
-	//test1 return true
-	x = 121;
-	cout << boolalpha << solu.isPalindrome(x) << ", true" << endl;
 
-	//test2 return false
+	cout << "Expect: true" << endl;
+	x = 121;
+	cout << "Output: " << boolalpha << solu.isPalindrome(x) << endl;
+
+	cout << "Expect: false" << endl;
 	x = -121;
-	cout << solu.isPalindrome(x) << ", false" << endl;
+	cout << "Output: " << boolalpha << solu.isPalindrome(x) << endl;
 	
-	//test3 return false
+	cout << "Expect: false" << endl;
 	x = 10;
-	cout << solu.isPalindrome(x) << ", false" << endl;
-    return 0;
+	cout << "Output: " << boolalpha << solu.isPalindrome(x) << endl;
+    
+	system("pause");
+	return 0;
 }
 

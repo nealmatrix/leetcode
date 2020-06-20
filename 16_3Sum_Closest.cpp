@@ -15,8 +15,14 @@ Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).*/
 -10^3 <= nums[i] <= 10^3
 -10^4 <= target <= 10^4*/
 
-/* Solution:
-和15_3Sum的Solution 2思路一样*/
+/* Solution: 和15_3Sum的Solution 2思路一样, 如下：
+还是先sort nums，从左向右，为a，确定a后，即确定target，这时候，b和c从右侧的数组两侧向
+中间靠拢
+case 1： b + c < target， 那么b向右移动
+case 2： b + c > target， 那么c向左移动
+case 3： b + c = target， 那么b和c一起向中间移动
+此时也要注意a，b，c重复的问题，类似于solution中的bigIter函数的功能
+复杂度仍为O(n^2)*/
 
 #include <vector>
 #include <iostream>

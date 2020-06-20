@@ -1,18 +1,38 @@
-// 0007 Reverse Integer.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
-//
+//7 Reverse Integer
 
-#include "stdafx.h"
+/* Description:
+Given a 32-bit signed integer, reverse digits of an integer.*/
+
+/* Example 1:
+Input: 123
+Output: 321
+
+Example 2:
+Input: -123
+Output: -321
+
+Example 3:
+Input: 120
+Output: 21*/
+
+/* Note:
+Assume we are dealing with an environment which could only store integers 
+within the 32-bit signed integer range: [âˆ’2^31,  2^31 âˆ’ 1]. 
+For the purpose of this problem, assume that your function returns 0 
+when the reversed integer overflows.*/
+
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-class SolutionV1 {
+class Solution_2 {
 public:
 	int reverse(int x) {
 		long long max = pow(2, 31) - 1;
 		long long min = -pow(2, 31);
 		long long result = 0;
 		int sign = 1;
-		int a; //±íÊ¾xµÄ¸öÎ»
+		int a; //è¡¨ç¤ºxçš„ä¸ªä½
 		if (x == 0)
 			return 0;
 		if (x < 0) {
@@ -33,7 +53,7 @@ public:
 
 class Solution {
 public:
-	// x<0 ºÍx=0¶¼¿ÉÒÔºÏ²¢
+	// x < 0 å’Œx = 0 éƒ½å¯ä»¥åˆå¹¶
 	int reverse(int x) {
 		long long max = pow(2, 31) - 1;
 		long long min = -pow(2, 31);
@@ -53,19 +73,22 @@ int main()
 {
 	int x;
 	Solution solu;
-	//test1 return 321
-	x = 123;
-	cout << solu.reverse(x) << endl;
-	//test2 return -321 
-	x = -123;
-	cout << solu.reverse(x) << endl;
-	//test3 return 21
-	x = 120;
-	cout << solu.reverse(x) << endl;
 
-	//test4 return 0
+	cout << "Expect: 321" << endl;
+	x = 123;
+	cout << "Output: " << solu.reverse(x) << endl;
+	
+	cout << "Expect: -321" << endl;
+	x = -123;
+	cout << "Output: " << solu.reverse(x) << endl;
+	
+	cout << "Expect: 21" << endl;
+	x = 120;
+	cout << "Output: " << solu.reverse(x) << endl;
+
+	cout << "Expect: 0" << endl;
 	x = -pow(2,31);
-	cout << solu.reverse(x) << endl;
+	cout << "Output: " << solu.reverse(x) << endl;
 
 	long long a;
 	cout << sizeof(a) << endl;

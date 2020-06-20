@@ -1,7 +1,56 @@
-// 0012 Integer to Roman.cpp : 定义控制台应用程序的入口点。
-//
+//12 Integer to Roman
 
-#include "stdafx.h"
+/* Description:
+Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+
+For example, two is written as II in Roman numeral, just two one's added together. 
+Twelve is written as, XII, which is simply X + II. The number twenty seven is written as XXVII, 
+which is XX + V + II.
+
+Roman numerals are usually written largest to smallest from left to right. 
+However, the numeral for four is not IIII. Instead, the number four is written as IV. 
+Because the one is before the five we subtract it making four. 
+The same principle applies to the number nine, which is written as IX. 
+There are six instances where subtraction is used:
+
+I can be placed before V (5) and X (10) to make 4 and 9. 
+X can be placed before L (50) and C (100) to make 40 and 90. 
+C can be placed before D (500) and M (1000) to make 400 and 900.
+
+Given an integer, convert it to a roman numeral. Input is guaranteed to be within 
+the range from 1 to 3999.*/
+
+/* Example 1:
+Input: 3
+Output: "III"
+
+Example 2:
+Input: 4
+Output: "IV"
+
+Example 3:
+Input: 9
+Output: "IX"
+
+Example 4:
+Input: 58
+Output: "LVIII"
+Explanation: L = 50, V = 5, III = 3.
+
+Example 5:
+Input: 1994
+Output: "MCMXCIV"
+Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.*/
+
 #include <string>
 #include <unordered_map>
 #include <iostream>
@@ -19,7 +68,7 @@ public:
 		insertItem2(intToRoMap);
 		//printUnorderMap(intToRoMap);
 		int order = 1;
-		int i; //记录num的最低位
+		int i; //璁板綍num鐨勬渶浣庝綅
 		string result = "";
 		while (num > 0) {
 			i = num % 10;
@@ -70,30 +119,31 @@ int main()
 	Solution solu;
 	int num;
 
-	//test1 return "III"
+	cout << "Expect: III" <<endl;
 	num = 3;
-	cout << solu.intToRoman(num) << ", III" << endl;
+	cout << "Output: " << solu.intToRoman(num) << endl;
 	
-	//test2 return "IV"
+	cout << "Expect: IV" <<endl;
 	num = 4;
-	cout << solu.intToRoman(num) << ", IV" << endl;
+	cout << "Output: " << solu.intToRoman(num) << endl;
 	
-	//test3 return "IX"
+	cout << "Expect: IX" <<endl;
 	num = 9;
-	cout << solu.intToRoman(num) << ", IX" << endl;
+	cout << "Output: " << solu.intToRoman(num) << endl;
 
-	//test4 return "LVIII"
+	cout << "Expect: LVIII" <<endl;
 	num = 58;
-	cout << solu.intToRoman(num) << ", LVIII" << endl;
+	cout << "Output: " << solu.intToRoman(num) << endl;
 	
-	//test5 return "MCMXCIV"
+	cout << "Expect: MCMXCIV" <<endl;
 	num = 1994;
-	cout << solu.intToRoman(num) << ", MCMXCIV" << endl;
+	cout << "Output: " << solu.intToRoman(num) << endl;
 
-	//test6 return "MM"
+	cout << "Expect: MM" <<endl;
 	num = 2000;
-	cout << solu.intToRoman(num) << ", MM" << endl;
+	cout << "Output: " << solu.intToRoman(num) << endl;
 
+	system("pause");
     return 0;
 }
 

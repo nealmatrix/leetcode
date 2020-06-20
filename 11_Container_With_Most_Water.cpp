@@ -1,7 +1,23 @@
-// 0011 Container With Most Water.cpp : 定义控制台应用程序的入口点。
-//
+//11 Container With Most Water
 
-#include "stdafx.h"
+/* Description:
+Given n non-negative integers a1, a2, ..., an , where each represents a point 
+at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is 
+at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, 
+such that the container contains the most water.*/
+
+/*Note: You may not slant the container and n is at least 2.*/
+
+/* Example:
+Input: [1,8,6,2,5,4,8,3,7]
+Output: 49*/
+
+/* Solution:
+Greedy algorithm, 
+1. 宸﹀彸杈瑰垎鍒粠a1鍜宎n璧凤紝鍚戜腑闂寸Щ鍔紝姣忔璁板綍闈㈢Н
+2. 姣忔绉诲姩杈冪煭鐨勮竟锛屽悜杈冨ぇ鐨勮竟绉诲姩
+澶嶆潅搴︿负O(n) */
+
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -27,10 +43,10 @@ public:
 	}
 };
 
+//print vector
 template<class T>
-void printvector(vector<T>& v) {
-	//print vector
-	vector<T>::iterator i;
+void printVector(vector<T>& v) {
+	typename vector<T>::iterator i;
 	for (i = v.begin(); i != v.end(); ++i)
 		cout << *i << " ";
 	cout << endl;
@@ -40,13 +56,12 @@ int main()
 {
 	
 	Solution solu;
-	//test1 return 49
-	int a[] = { 1,8,6,2,5,4,8,3,7 };
-	vector<int> height(a, a + 9);
-	printvector(height);
-	cout << solu.maxArea(height) << endl;
+	cout << "Expect: 49" << endl;
+	vector<int> height({ 1,8,6,2,5,4,8,3,7 });
+	printVector(height);
+	cout << "Output: " << solu.maxArea(height) << endl;
 
-
+	system("pause");
     return 0;
 }
 

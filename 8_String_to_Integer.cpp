@@ -3,8 +3,7 @@
 /* Description:
 Implement atoi which converts a string to an integer.
 The function first discards as many whitespace characters as necessary 
-until the first non-whitespace character is found. 
-Then, starting from this character, 
+until the first non-whitespace character is found. Then, starting from this character, 
 takes an optional initial plus or minus sign followed by as many numerical digits as possible, 
 and interprets them as a numerical value.
 
@@ -12,8 +11,7 @@ The string can contain additional characters after those that form the integral 
 which are ignored and have no effect on the behavior of this function.
 
 If the first sequence of non-whitespace characters in str is not a valid integral number, 
-or if no such sequence exists because either str is empty 
-or it contains only whitespace characters, 
+or if no such sequence exists because either str is empty or it contains only whitespace characters, 
 no conversion is performed.
 
 If no valid conversion could be performed, a zero value is returned.*/
@@ -21,7 +19,7 @@ If no valid conversion could be performed, a zero value is returned.*/
 /* Note:
 1. Only the space character ' ' is considered as whitespace character.
 2. Assume we are dealing with an environment which could only store integers 
-within the 32-bit signed integer range: [−231,  231 − 1]. 
+within the 32-bit signed integer range: [−2^31,  2^31 − 1]. 
 If the numerical value is out of the range of representable values, 
 INT_MAX (2^31 − 1) or INT_MIN (−2^31) is returned.*/
 
@@ -54,9 +52,11 @@ Explanation: The number "-91283472332" is out of the range of a 32-bit signed in
 
 #include <string>
 #include <iostream>
+#include <cmath>
+#include <iomanip>
 using namespace std;
 
-class SolutionV1 {
+class Solution_2 {
 public:
 	int myAtoi(string str) {
 		//逻辑上可以更加简洁, 参考Solution
@@ -114,14 +114,13 @@ class Solution {
 public:
 	int myAtoi(string str) {
 		int n = str.size();
-		int j = 0; //record the output int 位数
 		int i;
 		long long result = 0;
+		//find the first non-whitespace index
 		for (i = 0; i < n; i++) {
 			if (str[i] != ' ')
 				break;
 		}
-		// str is empty or str contains all whitespace
 		
 		int sign = 1; //记录output是正负的
 		if (str[i] == '+' || str[i] == '-') {
@@ -145,56 +144,58 @@ int main()
 
 	string str;
 	Solution solu;
-	//test1 return 0
+	
+	cout << "Expect: 0" << endl;
 	str = "";
-	cout << solu.myAtoi(str) << ", 0" << endl;
+	cout << "Output: " << solu.myAtoi(str) << endl;
 
-	//test2 return 0
+	cout << "Expect: 0" << endl;
 	str = "     ";
-	cout << solu.myAtoi(str) << ", 0" << endl;
+	cout << "Output: " << solu.myAtoi(str) << endl;
 
-	//test3 return 42
+	cout << "Expect: 42" << endl;
 	str = "42";
-	cout << solu.myAtoi(str) << ", 42" << endl;
+	cout << "Output: " << solu.myAtoi(str) << endl;
 
-	//test4 return -42
+	cout << "Expect: -42" << endl;
 	str = "      -42";
-	cout << solu.myAtoi(str) << ", -42" << endl;
+	cout << "Output: " << solu.myAtoi(str) << endl;
 
-	//test5 return 4193
+	cout << "Expect: 4193" << endl;
 	str = "4193 with words";
-	cout << solu.myAtoi(str) << ", 4193" << endl;
+	cout << "Output: " << solu.myAtoi(str) << endl;
 
-	//test6 return 0
+	cout << "Expect: 0" << endl;
 	str = "words and 987";
-	cout << solu.myAtoi(str) << ", 0" << endl;
-
-	//test 7 return -2147483648
+	cout << "Output: " << solu.myAtoi(str) << endl;
+ 
+	cout << "Expect: -2147483648" << endl;
 	str = "-91283472332";
-	cout << solu.myAtoi(str) << ", -2147483648" << endl;
+	cout << "Output: " << solu.myAtoi(str) << endl;
 
-	//test 8 return 0
+	cout << "Expect: 0" << endl;
 	str = "  ++123";
-	cout << solu.myAtoi(str) << ", 0" << endl;
+	cout << "Output: " << solu.myAtoi(str) << endl;
 
-	//test 9 return 0
+	cout << "Expect: 0" << endl;
 	str = "   +";
-	cout << solu.myAtoi(str) << ", 0" << endl;
+	cout << "Output: " << solu.myAtoi(str) << endl;
 
-	//test 10 return 12345678
+	cout << "Expect: 12345678" << endl;
 	str = "  0000000000012345678";
-	cout << solu.myAtoi(str) << ", 12345678" << endl;
+	cout << "Output: " << solu.myAtoi(str) << endl;
 
-	//test 11 return 123
+	cout << "Expect: 123" << endl;
 	str = "  00000000000123aa123";
-	cout << solu.myAtoi(str) << ", 123" << endl;
+	cout << "Output: " << solu.myAtoi(str) << endl;
 
 
-	/*cout << isdigit('9')<<endl;
+	cout << isdigit('9') << endl;
 	cout << isalpha('1') << endl;
-	cout << dec << pow(2, 31) << endl;
+	cout << fixed << pow(2, 31) << endl;
 	cout << INT_MIN << endl;
-	cout << INT_MAX << endl;*/
+	cout << INT_MAX << endl;
+	system("pause");
     return 0;
 }
 
