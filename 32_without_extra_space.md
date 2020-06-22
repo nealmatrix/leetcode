@@ -58,6 +58,6 @@ L>R       L=R       L<R
 
 - if `i - 1` is `)`, because L > R, therefore, `i - 1` must be a part of valid parentheses, therefore substring `s[i: j + 1]` will not be the longest.
 - if `j + 1` is `(`, becasue L < R, therefore, `j + 1` must be a part of valid parentheses, therefore substring `s[i: j + 1]` will not be the longest.
-- Thereofre,  `i - 1` must be `(`,`j + 1` must be `)`, the `s[i - 1 : j + 2]` is also the valid parenthese. Contradict.
+- Therefore,  `i - 1` must be `(`,`j + 1` must be `)`, the `s[i - 1 : j + 2]` is also the valid parenthese. Contradict.
 
 4. Therefore Case 1 Point 4 cannot exist with Case 2 Point 2 simulatenously. One of them will not exist. Therefore, we can find the substring `s[i: j + 1]` either from left to right scan or right to left scan.
