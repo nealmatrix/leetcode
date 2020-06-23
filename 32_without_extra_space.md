@@ -39,7 +39,7 @@ assume the longest substring is `s[i: j + 1]`
 - if `left < right`, due to rule 2, we reset `left` and `right` to `0`  
 - if `left > right`, we cannot find the substring `s[i: j + 1]`, because we will not stop when we reach `j`
 
-2. From right to left, we get the similar result, point 1,2 is the same as from left to right
+2. From right to left, we get the similar result, point 1,2 in Case 1 is also applied to this case. We only analyze other two points.
 - if `left > right`, due to rule 3, we reset `left` and `right` to `0`
 -   if `left < right`, we cannot find the substring `s[i: j + 1]`, because we will not stop when we reach `i`
 

@@ -17,11 +17,48 @@ Input: nums = [4,5,6,7,0,1,2], target = 3
 Output: -1*/
 
 /* Solution:
-1. 二分法技巧：
+1. 二分法技巧1：判断target是否在sorted list中，参考本题
 while (min_i <= max_i)
-    如果target > nums[j], 那么min_i = j + 1，而不是j
-    如果target < nums[j], 那么max_i = j - 1，而不是j
-这样会节省很多种选择*/
+    j = (min_i + max_i) / 2
+    if target == nums[j] return j
+    if target > nums[j], min_i = j + 1，而不是j
+    if target < nums[j], max_i = j - 1，而不是j
+这样会以min_i > max_i 结束，节省很多种选择
+例如
+min max j
+0   1   0
+1   1   1   if target > nums[0]
+2   1           if target > nums[1]
+1   0           if target < nums[1]
+0   -1      if target < nums[0]
+以min_i > max_i结束
+
+2. 二分法技巧2：判断target在sorted list中的范围，参考Q34
+while (min_i < max_i)
+    //确定下限
+    if target <= nums[j], max_i = j
+    if target > nums[j], min_i = j
+    //确定上限
+    if target >= nums[j], min_i = j
+    if target < nums[j], max_i = j
+这样一定可以达到min_i - max_i == -1结束
+并且保证如果target在sorted listed中，最后target也一定在min_i或者max_i中,方便确定范围
+例如：
+7777888899
+0123456789
+下限 target = 8
+min max mid
+0   9   4
+0   4   2
+2   4   3
+3   4
+上限
+0   9   4
+4   9   6
+6   9   7
+7   9   8
+7   8
+以min_i - max_i == -1结束*/
 
 #include <vector>
 #include <iostream>
