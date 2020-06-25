@@ -50,7 +50,8 @@
         "xtr1common": "cpp",
         "xtree": "cpp",
         "xutility": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "numeric": "cpp"
     },
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
 }
