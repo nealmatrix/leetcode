@@ -62,8 +62,9 @@ int main(){
     vector<int> height;
     Solution sol;
 
+    cout << "Expect: 6" << endl;
     height = {0,1,0,2,1,0,1,3,2,1,2,1};
-    cout << sol.trap(height) << endl;
+    cout << "Output: " << sol.trap(height) << endl;
 
     system("pause");
     return 0;

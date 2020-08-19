@@ -1,4 +1,4 @@
-// test.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// test.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
@@ -14,8 +14,8 @@ using namespace std;
 class Data {
 public:
 	int a[10][6];
-	int b[10]; //¼ÇÂ¼Ã¿¸öÊı×éÓĞ¶àÉÙ¸öÊı
-	int lineNum = 0; //¼ÇÂ¼Ò»¹²ÓĞ¼¸ĞĞ
+	int b[10]; //è®°å½•æ¯ä¸ªæ•°ç»„æœ‰å¤šå°‘ä¸ªæ•°
+	int lineNum = 0; //è®°å½•ä¸€å…±æœ‰å‡ è¡Œ
 	void readData();
 };
 void Data::readData() {
@@ -36,14 +36,14 @@ void Data::readData() {
 
 int main()
 {
-	//test »ù±¾ÊäÈëÊä³ö
+	//test åŸºæœ¬è¾“å…¥è¾“å‡º
     /*double n = 2;
 	int m = sizeof(n);
 	cout << n << endl;
 	cout << "size n: " << m << endl;
 	*/
 
-	//×Ö·ûÊı×éµÄ·Ö¸î Ïàµ±ÓÚpythonµÄsplit¹¦ÄÜ
+	//å­—ç¬¦æ•°ç»„çš„åˆ†å‰² ç›¸å½“äºpythonçš„splitåŠŸèƒ½
 	/*char s[] = "1,2,3,4,5";
 	char *p;
     p=strtok(s, ",");
@@ -53,7 +53,7 @@ int main()
 	}
 	*/
 
-	//test ÎÄ¼şµÄÊäÈëºÍÊä³ö
+	//test æ–‡ä»¶çš„è¾“å…¥å’Œè¾“å‡º
 	/*int a[10];
 	int total = 0;
 	ifstream inFile("test_input1.txt", ios::in);
@@ -69,7 +69,7 @@ int main()
 	inFile.close();
 	*/
 
-	//test ´ÓÎÄ¼şÖĞ¶ÁÈ¡nĞĞÊı£¬·Ö±ğ´æÈëÊı×éÖĞ
+	//test ä»æ–‡ä»¶ä¸­è¯»å–nè¡Œæ•°ï¼Œåˆ†åˆ«å­˜å…¥æ•°ç»„ä¸­
     /*Data data;
 	ifstream inFile("test_input2.txt", ios::in);
 	if (!inFile) {
@@ -94,7 +94,7 @@ int main()
 	data.readData();
 	*/
 
-	//test µØÖ·¸³Öµ
+	//test åœ°å€èµ‹å€¼
 	/*int m = 1, n = 2;
 	int *a, *b;
 	b = &m;
@@ -104,7 +104,7 @@ int main()
 	cout << *a << endl;
 	*/
 
-	//test ×Ö·û´®Êı×éµÄ´óĞ¡
+	//test å­—ç¬¦ä¸²æ•°ç»„çš„å¤§å°
 	/*int a[] = { 1,2,3,4 };
 	int *b;
 	char c[] = "abcdefg";
@@ -118,7 +118,7 @@ int main()
 	cout << "e: " << sizeof(e) << endl;
 	cout << d.at(1) << endl;*/
 
-	//unordered_map ²åÈëµÄÊÇ¶ÔÏó±¾Éí»¹ÊÇÖ¸Õë£¿
+	//unordered_map æ’å…¥çš„æ˜¯å¯¹è±¡æœ¬èº«è¿˜æ˜¯æŒ‡é’ˆï¼Ÿ
 	/*unordered_map<char, int> m;
 	pair<char, int> p1 = make_pair('a', 2);
 	m.insert(p1);
