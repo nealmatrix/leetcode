@@ -1,58 +1,25 @@
 {
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
-            "type": "process",
-            "command": "g++",
+            "label": "c++",
+            "type": "shell",
+            "command": "clang++",
             "args": [
                 "-g",
-                "-Wall",
-                "-std=c++14",
-                "-lm",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.o"
+                "-std=c++11",
+                "${file}"
             ],
             "presentation": {
-                "echo": false,
+                // Reveal the output only if unrecognized errors occur.
+                "echo": true,
                 "reveal": "silent",
-                "showReuseMessage": false,
-                "clear": true
-            },
-            "problemMatcher": "$gcc",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "windows": {
-                "args": [
-                    "-g",
-                    "-Wall",
-                    "-std=c++14",
-                    "-lm",
-                    "${file}",
-                    "-o",
-                    "${fileDirname}/${fileBasenameNoExtension}.exe"
-                ]
+                "clear": true,
+                "focus":false,
+                "panel":"shared"
             }
-        },
-        {
-            "label": "run",
-            "type": "shell",
-            "dependsOn": "build",
-            "command": "${fileDirname}/${fileBasenameNoExtension}.o",
-            "presentation": {
-                "focus": true
-            },
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            },
-            "windows": {
-                "command": "${fileDirname}/${fileBasenameNoExtension}.exe"
-            }
-        },
-        
+        }
     ]
 }

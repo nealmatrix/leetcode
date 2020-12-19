@@ -75,6 +75,7 @@ int main()
 	ostream_iterator<int> oit(cout, ",");
 	copy(result.begin(), result.end(), oit);
 	
+	
 	//find如果找不到，则会返回nums.end()
 	/*p=find(nums.begin(), nums.end(), 10); 
 	cout << p - nums.begin()<<endl;
