@@ -40,7 +40,6 @@ class Solution {
 public:
     int jump(vector<int>& nums) {
         int len = nums.size();
-        vector<int> n_jumps(len, 0);
         
         int n_jump = 0; //记录现在最小jump步数
         int i = 0, j = 0; //i，j分别对应新的范围中的最小和最大序号
@@ -55,11 +54,8 @@ public:
             //重新定义新范围下i和j的值
             i = j + 1;
             j = max_i;
-            for (k = i; k <= j; ++k){
-                n_jumps[k] = n_jump; 
-            }
         }
-        return n_jumps[len - 1];       
+        return n_jump;       
     }
 };
 

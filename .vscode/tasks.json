@@ -4,22 +4,31 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "c++",
+            "label": "clang++ build active file",
             "type": "shell",
             "command": "clang++",
             "args": [
+                "-std=c++17",
+                "-stdlib=libc++",
                 "-g",
-                "-std=c++11",
                 "${file}"
             ],
-            "presentation": {
-                // Reveal the output only if unrecognized errors occur.
-                "echo": true,
-                "reveal": "silent",
-                "clear": true,
-                "focus":false,
-                "panel":"shared"
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
+            // "presentation": {
+            //     // Reveal the output only if unrecognized errors occur.
+            //     "echo": true,
+            //     "reveal": "silent",
+            //     "clear": true,
+            //     "focus":false,
+            //     "panel":"shared"
+            // }
         }
     ]
 }
