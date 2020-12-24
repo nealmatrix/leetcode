@@ -59,7 +59,7 @@ i   temp    max j
 
 2. divide and conquer 复杂度为O(nlogn)
 1. 将nums从中间分开，左右分别带入函数，得到最大的maxSubArray
-2. 计算一定横跨两个左右的subarray的最大值，即从mid开始，左边的最大值加右边的最大值
+2. 计算一定横跨两个左右的subarray的最大值，即从mid开始，左边的最大值加右边的最大值，复杂度为O(n)
 3. 输出这三个中最大的即是结果
 
 */

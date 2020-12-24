@@ -33,4 +33,4 @@
 *.app
 
 # Apple
-.DS_Store
+*/.DS_Store
