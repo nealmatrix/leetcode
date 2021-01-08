@@ -82,7 +82,7 @@ int main(){
     cout << "Expect: 7" << endl;
     cout << sol.minPathSum(grid) << endl;
 
-    grid = {{1,2,3},{4,5,6}};
+    grid = {{1, 2, 3}, {4, 5, 6}};
     cout << "Expect: 12" << endl;
     cout << sol.minPathSum(grid) << endl;
     
