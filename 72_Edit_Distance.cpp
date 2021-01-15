@@ -42,7 +42,11 @@ Constraints:
 
 0 <= word1.length, word2.length <= 500
 word1 and word2 consist of lowercase English letters.
+
+Solution:
+与算法Sequence alignment一一对应
 */
+
 #include <string>
 #include <iostream>
 using namespace std;
