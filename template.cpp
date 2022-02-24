@@ -11,6 +11,16 @@ public:
     }
 };
 
+
+int printVector(vector<int>& nums){
+    int len = nums.size();
+    for (int i = 0; i < len; ++i){
+        cout << nums[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
+
 int main(){
     Solution sol;
     vector<int> nums;
