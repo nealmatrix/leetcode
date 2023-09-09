@@ -17,35 +17,22 @@ brute force可以做，但是用hash table可以进一步提高效率
 可以用one-pass hash table，即加入一个数的时候先检测是否有对应的数已经在hash table中了。
 */
 
-#include <vector>
 #include <algorithm>
 #include <iostream>
 #include <iterator>
 #include <unordered_map>
 
-using namespace std;
+#include "leetcode/solutions.hpp"
+
+namespace leetcode
+{
+std::vector
+
+} // namespace leetcode
 
 class Solution {
 public:
 	vector<int> twoSum(vector<int>& nums, int target) {
-		
-		//Solution 1: brute force
-		/*vector<int>::iterator p1, p2;
-		vector<int> result;
-		for (p1 = nums.begin(); p1 < nums.end() - 1; ++p1) {
-			int target2 = target - *p1;
-			p2 = find(p1 + 1, nums.end(), target2);
-			if(p2!=nums.end())
-			{
-				break;
-			}
-		}
-		result.push_back(p1 - nums.begin());
-		result.push_back(p2 - nums.begin());
-		return result;
-		*/
-
-		//Solution 2: one-pass hash table
 		unordered_map<int, int> map; //int,int -> a[i], i
 		vector<int> result;
 		for (vector<int>::iterator p = nums.begin(); p != nums.end(); ++p) {
